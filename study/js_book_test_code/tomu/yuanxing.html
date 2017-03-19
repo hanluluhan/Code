@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	var Calculator = function (decimalDigits, tax) {
+            this.decimalDigits = decimalDigits;
+            this.tax = tax;
+    };
+   // Calculator.prototype = function () {
+   //          add = function (x, y) {
+   //              return x + y;
+   //          },
+   //          subtract = function (x, y) {
+   //              return x - y;
+   //          },
+   //          return {
+   //              add: add,
+   //              subtract: subtract
+   //          }
+   //      } ();
+   //      var cal = new Calculator();
+   // console.log(cal.add(1,2));
+	   function Foo(y) {
+	  // 构造函数将会以特定模式创建对象：被创建的对象都会有"y"属性
+	  this.y = y;
+	}
+	 
+	// "Foo.prototype"存放了新建对象的原型引用
+	// 所以我们可以将之用于定义继承和共享属性或方法
+	// 所以，和上例一样，我们有了如下代码：
+	 
+	// 继承属性"x"
+	Foo.prototype.x = 10;
+	 
+	// 继承方法"calculate"
+	Foo.prototype.calculate = function (z) {
+	  return this.x + this.y + z;
+	};
+	 
+	// 使用foo模式创建 "b" and "c"
+	var b = new Foo(20);
+	var c = new Foo(30);
+	 
+	// 调用继承的方法
+	b.calculate(30); // 60
+	c.calculate(40); // 80
+	 
+	// 让我们看看是否使用了预期的属性
+	 
+	console.log(
+	 
+	  b.__proto__ === Foo.prototype, // true
+	  c.__proto__ === Foo.prototype, // true
+	 
+	  // "Foo.prototype"自动创建了一个特殊的属性"constructor"
+	  // 指向a的构造函数本身
+	  // 实例"b"和"c"可以通过授权找到它并用以检测自己的构造函数
+	 
+	  b.constructor === Foo, // true
+	  c.constructor === Foo, // true
+	  Foo.prototype.constructor === Foo ,// true
+	 
+	  b.calculate === b.__proto__.calculate, // true
+	  b.__proto__.calculate === Foo.prototype.calculate // true
+	 
+);
+
+
+
+
+//作用域链，去搜寻__parent__之前，首先会去__proto__的链接中。
+	console.log(b,c);
+	Object.prototype.x = 10;
+ 
+var w = 20;
+var y = 30;
+ 
+// 在SpiderMonkey全局对象里
+// 例如，全局上下文的变量对象是从"Object.prototype"继承到的
+// 所以我们可以得到“没有声明的全局变量”
+// 因为可以从原型链中获取
+ 
+console.log(x); // 10
+ 
+(function foo() {
+ 
+  // "foo" 是局部变量
+  var w = 40;
+  var x = 100;
+ 
+  // "x" 可以从"Object.prototype"得到，注意值是10哦，从原型链中获取
+  // 因为{z: 50}是从它那里继承的
+ 
+  with ({z: 50}) {
+    console.log(w, x, y , z); // 40, 10, 30, 50
+  }
+ 
+  // 在"with"对象从作用域链删除之后
+  // x又可以从foo的上下文中得到了，注意这次值又回到了100哦
+  // "w" 也是局部变量
+  console.log(x, w); // 100, 40
+ 
+  // 在浏览器里
+  // 我们可以通过如下语句来得到全局的w值
+  console.log(window.w); // 20
+ 
+})();
+var data = [];
+ 
+for (var k = 0; k < 3; k++) {
+  data[k] = (function (x) {
+    return function () {
+      console.log(x);
+    };
+  })(k); // 将k当做参数传递进去
+}
+ 
+// 结果正确
+data[0](); // 0
+data[1](); // 1
+data[2](); // 2
+s=4;
+function kk(){
+    this.s=3;
+    console.log(this.s)
+    var s = 6;
+    return function(){
+        console.log(this.s);
+    }
+};
+var o=new kk();
+o();
+//alert(o.s);//undefine
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
