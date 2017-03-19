@@ -1,0 +1,143 @@
+html,body{
+
+	height:100%;
+}
+body{
+	background-color: black;
+	display: flex;	
+}
+.container{
+	margin:0 30px;	
+	height:auto;
+	background-color: #eee;
+}
+header{
+	width:100%;
+	height:100px;
+	background-color: red;
+
+}
+header img{
+	width:50px;
+	height:60px;
+	margin:20px 50px;
+}
+header ul, header ul li {
+	float:right;
+	margin:20px 10px;
+}
+header a:link,a:visited{
+  text-decoration: none;
+  color:white;
+}
+header a:hover,a:active{
+	text-decoration: none;
+	color:black;
+}
+.content{
+	background-color: #eee;
+	padding: 10px;
+	position: relative;
+	background-image: url(./1.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+p{
+	text-indent: 2em;
+}
+#test1{
+	padding-right:450px;
+	position: relative;
+}
+.test2{
+	padding-left:10px; 
+}
+.content_1 ,.content_2,.content_3,.content_4,.content_5{
+	padding:15px;
+	border:1px solid black;
+	background-color: white;
+	margin-bottom: 5px;
+	width:auto;
+}
+.content_3:after,content_3:before {
+	content: "";
+	display: block;
+	
+}
+.content_3:after{
+	clear:both;
+}
+.content_3{
+	zoom:1;
+}
+.content_3 ul li{
+	float:left;
+	border:1px solid black;
+	margin:10px;
+	width:200px;
+	height:180px;
+	position: relative;
+}
+.content_3 ul li span{
+	position: absolute;
+	left:60px;
+	top:10px;
+}
+.content_3 ul li img{
+	clear:both;
+	width:100px;
+	height:100px;
+	padding: 10px;
+	position: absolute;
+	right:40px;
+	top:50px;
+}
+
+.content_2,.content_3 li{
+	list-style-type: none;
+}
+table{
+	width: 100%;	
+}
+table tr>th{
+	background-color: black;
+	text-align: left;
+	color: white;
+}
+tr>td>a:link,a:visited{
+	color: blue;
+}
+tfoot{
+	border:0;
+	background-color: #eee;
+	font-weight: bolder;
+}
+.content_5{
+	position: absolute;
+	right:0;
+	top:0;
+	margin:10px;
+	width:30%;
+}
+#title{
+	border-left: 5px solid #eee;
+	padding:20px; 
+}
+.group{
+	display: inline-block;
+	width:100%;
+	padding:10px;
+}
+label{
+	display:inline-block;
+	max-width: 100%;
+	text-align: right;
+}
+.grouplabel{
+	min-width:30%;
+}
+footer{
+	clear: both;
+	height:200px;
+	
+}
